@@ -14,19 +14,19 @@ eureka:
   instance:
     hostname: ${EUREKA_HOST:localhost}
   server:
-    enable-self-preservation: false # ÉèÎªfalse£¬¹Ø±Õ×ÔÎÒ±£»¤
-    ## ÇåÀíÊ±¼ä¼ä¸ô£¬µ¥Î»ºÁÃë£¬Ä¬ÈÏÊÇ60*1000£©
+    enable-self-preservation: false # è®¾ä¸ºfalseï¼Œå…³é—­è‡ªæˆ‘ä¿æŠ¤
+    # æ¸…ç†æ—¶é—´é—´éš”ï¼Œå•ä½æ¯«ç§’ï¼Œé»˜è®¤æ˜¯60*1000ï¼‰
     evictionIntervalTimerInMs: 30000
   client:
-    ## ÊÇ·ñ½«×Ô¼º×¢²áµ½Eureka Server£¬Ä¬ÈÏÎªtrue¡£ÓÉÓÚµ±Ç°Õâ¸öÓ¦ÓÃ¾ÍÊÇEureka Server£¬¹Ê¶øÉèÎªfalse
+    # æ˜¯å¦å°†è‡ªå·±æ³¨å†Œåˆ°Eureka Serverï¼Œé»˜è®¤ä¸ºtrueã€‚ç”±äºå½“å‰è¿™ä¸ªåº”ç”¨å°±æ˜¯Eureka Serverï¼Œæ•…è€Œè®¾ä¸ºfalse
     registerWithEureka: false
-    ## ÊÇ·ñ´ÓEureka Server»ñÈ¡×¢²áĞÅÏ¢£¬Ä¬ÈÏÎªtrue¡£ÒòÎªÕâÊÇÒ»¸öµ¥µãµÄEureka Server£¬²»ĞèÒªÍ¬²½ÆäËûµÄEureka Server½ÚµãµÄÊı¾İ£¬¹Ê¶øÉèÎªfalse
+    # æ˜¯å¦ä»Eureka Serverè·å–æ³¨å†Œä¿¡æ¯ï¼Œé»˜è®¤ä¸ºtrueã€‚å› ä¸ºè¿™æ˜¯ä¸€ä¸ªå•ç‚¹çš„Eureka Serverï¼Œä¸éœ€è¦åŒæ­¥å…¶ä»–çš„Eureka ServerèŠ‚ç‚¹çš„æ•°æ®ï¼Œæ•…è€Œè®¾ä¸ºfalse
     fetchRegistry: false
-    ## ÓëEureka Server½»»¥µÄµØÖ·£¬²éÑ¯·şÎñºÍ×¢²á·şÎñ¶¼ĞèÒªÒÀÀµÕâ¸öµØÖ·¡£Ä¬ÈÏÊÇhttp://localhost:8761/eureka £»¶à¸öµØÖ·¿ÉÊ¹ÓÃ , ·Ö¸ô¡£
+    # ä¸Eureka Serveräº¤äº’çš„åœ°å€ï¼ŒæŸ¥è¯¢æœåŠ¡å’Œæ³¨å†ŒæœåŠ¡éƒ½éœ€è¦ä¾èµ–è¿™ä¸ªåœ°å€ã€‚é»˜è®¤æ˜¯http://localhost:8761/eureka ï¼›å¤šä¸ªåœ°å€å¯ä½¿ç”¨ , åˆ†éš”ã€‚
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 
-# ÈÕÖ¾
+# æ—¥å¿—
 logging:
   path: classpath:log4j2.yml
 

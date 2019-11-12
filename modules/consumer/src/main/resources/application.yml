@@ -1,6 +1,6 @@
 spring:
   application:
-    name: eureka-server
+    name: consumer
 
 ribbon:
   eureka:
@@ -8,25 +8,22 @@ ribbon:
 
 
 server:
-  port: 8601
+  port: 8604
 
-eureka:
-  instance:
-    hostname: ${EUREKA_HOST:localhost}
-  server:
-    enable-self-preservation: false # ÉèÎªfalse£¬¹Ø±Õ×ÔÎÒ±£»¤
-    ## ÇåÀíÊ±¼ä¼ä¸ô£¬µ¥Î»ºÁÃë£¬Ä¬ÈÏÊÇ60*1000£©
-    evictionIntervalTimerInMs: 30000
-  client:
-    ## ÊÇ·ñ½«×Ô¼º×¢²áµ½Eureka Server£¬Ä¬ÈÏÎªtrue¡£ÓÉÓÚµ±Ç°Õâ¸öÓ¦ÓÃ¾ÍÊÇEureka Server£¬¹Ê¶øÉèÎªfalse
-    registerWithEureka: false
-    ## ÊÇ·ñ´ÓEureka Server»ñÈ¡×¢²áĞÅÏ¢£¬Ä¬ÈÏÎªtrue¡£ÒòÎªÕâÊÇÒ»¸öµ¥µãµÄEureka Server£¬²»ĞèÒªÍ¬²½ÆäËûµÄEureka Server½ÚµãµÄÊı¾İ£¬¹Ê¶øÉèÎªfalse
-    fetchRegistry: false
-    ## ÓëEureka Server½»»¥µÄµØÖ·£¬²éÑ¯·şÎñºÍ×¢²á·şÎñ¶¼ĞèÒªÒÀÀµÕâ¸öµØÖ·¡£Ä¬ÈÏÊÇhttp://localhost:8761/eureka £»¶à¸öµØÖ·¿ÉÊ¹ÓÃ , ·Ö¸ô¡£
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 
-# ÈÕÖ¾
+#æ—¥å¿—
 logging:
   path: classpath:log4j2.yml
 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${EUREKA_HOST:localhost}:8601/eureka/
+  instance:
+    # ç§ŸæœŸæ›´æ–°æ—¶é—´é—´éš”ï¼ˆé»˜è®¤30ç§’ï¼‰
+    leaseRenewalIntervalInSeconds: 15
+    # ç§ŸæœŸåˆ°æœŸæ—¶é—´ï¼ˆé»˜è®¤90ç§’ï¼‰
+    leaseExpirationDurationInSeconds: 30
+    prefer-ip-address: true
+    # æŒ‡å®šæ­¤å®¢æˆ·ç«¯çš„ip
+    ip-address: ${spring.cloud.client.ipAddress}
