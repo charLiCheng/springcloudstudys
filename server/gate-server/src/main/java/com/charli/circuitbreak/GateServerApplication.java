@@ -1,6 +1,6 @@
-package com.charli.gateserver;
+package com.charli.circuitbreak;
 
-import com.charli.gateserver.filters.SimpleFilter;
+import com.charli.circuitbreak.service.SimpleFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
