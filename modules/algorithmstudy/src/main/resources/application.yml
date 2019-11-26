@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: algorithmstudy
+
+ribbon:
+  eureka:
+    enabled: true
+
+
+server:
+  port: 8607
+
+
+#日志
+logging:
+  path: classpath:log4j2.yml
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${EUREKA_HOST:localhost}:8601/eureka/
+  instance:
+    # 租期更新时间间隔（默认30秒）
+    leaseRenewalIntervalInSeconds: 15
+    # 租期到期时间（默认90秒）
+    leaseExpirationDurationInSeconds: 30
+    prefer-ip-address: true
+    # 指定此客户端的ip
+    ip-address: ${spring.cloud.client.ipAddress}
