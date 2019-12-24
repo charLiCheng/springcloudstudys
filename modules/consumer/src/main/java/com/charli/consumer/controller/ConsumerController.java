@@ -1,6 +1,8 @@
 package com.charli.consumer.controller;
 
+import com.charli.consumer.model.Params;
 import org.springframework.util.Assert;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date 2019/11/12 17:07
  */
 @RestController
+@RequestMapping("/api/v1")
 public class ConsumerController {
 
     @RequestMapping(value = "/checked-out")
@@ -26,5 +29,20 @@ public class ConsumerController {
         int i = 0;
         Assert.isNull(i,"不是空的, 错了");
         return "Spring in Action (Manning), Cloud Native Java (O'Reilly), Learning Spring Boot (Packt)";
+    }
+
+
+    /**
+     * Feign
+     * @return
+     */
+    @RequestMapping("/getDatabaseInfo")
+    public Params getDatabaseInfo(@RequestBody Params params) {
+
+        Long id = params.getId();
+        params.setPassword("6666666");
+        params.setEmail("334567463@qq,com");
+
+        return params;
     }
 }
