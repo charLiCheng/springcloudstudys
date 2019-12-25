@@ -73,8 +73,14 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+        <dependency>
+            <groupId>com.charli.stu</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0.1</version>
+            <scope>compile</scope>
+        </dependency>
 
-	</dependencies>
+    </dependencies>
 
 	<dependencyManagement>
 		<dependencies>
