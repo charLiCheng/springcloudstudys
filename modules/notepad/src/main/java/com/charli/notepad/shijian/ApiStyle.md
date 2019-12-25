@@ -51,7 +51,9 @@ get请求一般对于系统不做什么操作，就做单一查询，或者根�
 MediaType，即是Internet Media Type，互联网媒体类型；也叫做MIME类型，在Http协议消息头中，使用Content-Type来表示具体请求中的媒体类型信息.
 
 常见的媒体格式类型如下：
-
+![Image text](https://github.com/charLiCheng/springcloudstudys/blob/master/modules/notepad/src/main/java/com/charli/notepad/imgfolder/contentType.jpg) 
+ 
+                                                                    请求头Content-Type
 
 根据不同的业务自己可以在请求头自定义请求头的键值对。比如说每个请求头都要携带一个Token做身份检验之类的。
 
