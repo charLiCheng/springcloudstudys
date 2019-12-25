@@ -15,7 +15,6 @@ import java.util.List;
 @Service
 public class T_service {
 
-    @Autowired
     private T_dao t_dao;
 
     public void query(){

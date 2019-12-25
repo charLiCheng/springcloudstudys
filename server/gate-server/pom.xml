@@ -48,8 +48,14 @@
 			<artifactId>lombok</artifactId>
 			<version>1.18.8</version>
 		</dependency>
+        <dependency>
+            <groupId>com.charli.stu</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0.1</version>
+            <scope>compile</scope>
+        </dependency>
 
-	</dependencies>
+    </dependencies>
 
 	<dependencyManagement>
 		<dependencies>

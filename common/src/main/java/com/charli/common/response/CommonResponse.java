@@ -176,9 +176,9 @@ public class CommonResponse {
      * @param statusCode
      * @return CommonResponse 错误类别为默认的INVALID_REQUEST（请求错误）
      */
-    public static CommonResponse failure(StatusCodeEnum statusCode, String message) {
+    public static CommonResponse failure(Integer statusCode, String message) {
         CommonResponse response = new CommonResponse();
-        response.setStatusCode(statusCode.getKey());
+        response.setStatusCode(statusCode);
         response.setMessage(message);
         return response;
     }

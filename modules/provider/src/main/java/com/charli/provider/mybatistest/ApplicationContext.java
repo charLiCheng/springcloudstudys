@@ -21,13 +21,21 @@ import java.util.List;
  */
 public class ApplicationContext {
 
+//    配置自己的即可 , 在自己电脑随便搭建了一个
+
+   private static final String driver ="com.mysql.jdbc.Driver";
+   private static final String url = "jdbc:mysql://192.168.101.217:3308/test";
+   private static final String username = "dev";
+   private static final String password = "x1skrFBxdtFl3p4G";
+
+
     public static void main(String[] args) {
-        //      init datasource
+//      init datasource
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://192.168.101.217:3308/test");
-        dataSource.setUsername("dev");
-        dataSource.setPassword("x1skrFBxdtFl3p4G");
+        dataSource.setDriverClassName(driver);
+        dataSource.setUrl(url);
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
 
 //		事务
         TransactionFactory transactionFactory =
