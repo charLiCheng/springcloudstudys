@@ -9,6 +9,12 @@
 	<name>modules</name>
 	<description>Demo project for Spring Boot</description>
 
+	<properties>
+		<springfox.version>2.7.0</springfox.version>
+	</properties>
+
+
+
 	<dependencies>
 
 		<!--<dependency>-->
@@ -55,6 +61,18 @@
 			<version>3.2.1</version>
 		</dependency>
 
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${springfox.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${springfox.version}</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
@@ -78,6 +96,8 @@
 		<module>circuitbreak</module>
 		<module>consumer</module>
 		<module>provider</module>
+		<module>lambda</module>
 	</modules>
+
 
 </project>
