@@ -1,4 +1,4 @@
-package com.charli.consumer;
+package com.charli.lambda;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,10 +8,10 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 @SpringBootApplication
 @EnableFeignClients
 @EnableDiscoveryClient
-public class LambdaServerApplication {
+public class ConsumerServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LambdaServerApplication.class, args);
+		SpringApplication.run(ConsumerServerApplication.class, args);
 	}
 
 }

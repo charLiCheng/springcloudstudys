@@ -1,4 +1,4 @@
-package com.charli.consumer.model;
+package com.charli.lambda.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;

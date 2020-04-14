@@ -1,4 +1,4 @@
-package com.charli.consumer;
+package com.charli.lambda;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
