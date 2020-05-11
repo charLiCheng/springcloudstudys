@@ -1,6 +1,6 @@
 spring:
   application:
-    name: lambda
+    name: lambda-JUC
 
 ribbon:
   eureka:
