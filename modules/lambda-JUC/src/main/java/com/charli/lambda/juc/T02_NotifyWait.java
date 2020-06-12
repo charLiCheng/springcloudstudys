@@ -20,7 +20,7 @@ public class T02_NotifyWait {
 
         t1 = new Thread(() -> {
             synchronized (o) {
-                for (char a : aI) {
+                for (char a : aI) {   //数字
                     System.out.println(a);
                     try {
                         o.notifyAll();
@@ -36,7 +36,7 @@ public class T02_NotifyWait {
 
         t2 = new Thread(() -> {
             synchronized (o){
-                for (char a : aC) {
+                for (char a : aC) {   //字母
                     try {
                         System.out.println(a);
                         o.notifyAll();
@@ -45,6 +45,13 @@ public class T02_NotifyWait {
                         e.printStackTrace();
                     }
                 }
+                /*
+                * 其实如果是t2最后输出G,那么t2必然会唤醒t1,然后把自己锁住
+                * 这时t1被唤醒 , for循环时发现已经输出完了,不会执行for里面的(唤醒别的线程然后锁住自己线程)代码了
+                * 这时t1线程会直接执行到32行(o.notifyAll)代码,唤醒t2线程 , 然后t1线程的代码执行结束
+                * 接着t2执行到for循环,发现for也执行完毕,线程结束
+                * 所以按照这个执行逻辑,t2的线程最后可以不用执行o.notifyAll , 但是如果是两个以上的话应该是多需要唤醒的
+                * */
                 o.notifyAll();
             }
 
