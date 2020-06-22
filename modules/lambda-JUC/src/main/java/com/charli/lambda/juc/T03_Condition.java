@@ -6,6 +6,7 @@ import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -25,7 +26,6 @@ public class T03_Condition {
         Lock lock = new ReentrantLock();
         Condition c1 = lock.newCondition();
         Condition c2 = lock.newCondition();
-
 
         new Thread(() -> {
             lock.lock();
@@ -75,6 +75,25 @@ public class T03_Condition {
         t4.start();
         String name1 = t4.getName();
         System.out.println("name1 == "+name1);
+
+        Condition c3 = lock.newCondition();
+        Condition c4 = lock.newCondition();
+
+        new Thread(()->{
+            lock.lock();
+            try {
+                for (int i = 0; i < aI.length; i++) {
+                    System.out.println(aI[i]);
+                    c4.signal();
+                    c3.await();
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+
+            }finally {
+                lock.unlock();
+            }
+        },"t1");
     }
 
 }

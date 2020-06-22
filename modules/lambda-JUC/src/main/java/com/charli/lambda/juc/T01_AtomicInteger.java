@@ -12,10 +12,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class T01_AtomicInteger {
 
     AtomicInteger count = new AtomicInteger(0);
+//    private volatile Integer count = 0;
 
-    void m() {
+    /*synchronized*/ void m() {
         for (int i = 0; i < 10000; i++) {
             count.incrementAndGet();
+//            count++;
         }
     }
 
@@ -23,9 +25,27 @@ public class T01_AtomicInteger {
         T01_AtomicInteger t = new T01_AtomicInteger();
 
         List<Thread> threads = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            threads.add(new Thread(t::m,"thread - "+i));
+        }
 
+        threads.forEach(p->{
+            p.start();
+            try {
+                p.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
 
+//        threads.forEach(p->{
+//            try {
+//                p.join();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        });
 
+        System.out.println(t.count.get());
     }
-
 }
